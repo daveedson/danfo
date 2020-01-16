@@ -25,7 +25,7 @@ public class Login extends AppCompatActivity{
         btnsplashlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),SplashLogin.class);
+                Intent intent = new Intent(getApplicationContext(),SplashLogin.class); //intent 
                 startActivity(intent);
 
             }
