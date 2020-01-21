@@ -25,6 +25,7 @@ public class splashSignUp extends AppCompatActivity {
                      edtSignUpPassword;
 
     private ProgressDialog progressDialog;
+    private ProgressBar progressBar;
     private ImageView btnsgSignUp;
 
 
@@ -45,6 +46,7 @@ public class splashSignUp extends AppCompatActivity {
         edtSignUpPassword = findViewById(R.id.edtSignUpPassword);
         btnsgSignUp = findViewById(R.id.btnsgSignUp);
 
+     //   progressBar = findViewById(R.id.progressDialog);
 
         if (ParseUser.getCurrentUser() != null){
             ParseUser.getCurrentUser().logOut();
@@ -72,9 +74,11 @@ public class splashSignUp extends AppCompatActivity {
                         TheUser.setPassword(edtSignUpPassword.getText().toString());
 
 
-                        progressDialog = new ProgressDialog(splashSignUp.this);
+                        progressDialog = new ProgressDialog(splashSignUp.this,R.style.alertDialog);
                         progressDialog.setMessage("Signing Up "+edtSignUpName.getText().toString());
                         progressDialog.show();
+
+                        progressBar= new ProgressBar(splashSignUp.this);
 
 
 
@@ -116,7 +120,7 @@ public class splashSignUp extends AppCompatActivity {
     }
     private  void alertDisplayer(String title,String message,final boolean error){
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(splashSignUp.this)
+        AlertDialog.Builder builder = new AlertDialog.Builder(splashSignUp.this,R.style.alertDialog)
                 .setTitle(title)
                 .setMessage(message)
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
